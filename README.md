@@ -1,2 +1,2 @@
-# Gretels and Hensels
+# Gretels and Hansels
  Game for the GMTK Game Jam 2023
