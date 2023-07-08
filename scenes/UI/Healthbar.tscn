@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi02mlsnr6fym"]
+
+[ext_resource type="Script" path="res://scripts/UI/Healthbar.gd" id="1_2y4y7"]
+[ext_resource type="Texture2D" uid="uid://cnoim2i2ry3ea" path="res://images/barGreen_horizontalMid.png" id="1_esena"]
+
+[node name="Healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2y4y7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 70.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("1_esena")

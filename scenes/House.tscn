@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://4q1pqxdvwcte"]
+[gd_scene load_steps=5 format=3 uid="uid://4q1pqxdvwcte"]
 
-[ext_resource type="Texture2D" uid="uid://dd15lx6e1lxjk" path="res://images/IMG_4400.png" id="1_g6pch"]
+[ext_resource type="Texture2D" uid="uid://c38r8aul2xmgk" path="res://images/house.png" id="1_5e0ch"]
+[ext_resource type="Script" path="res://scripts/House.gd" id="1_38vin"]
 
-[node name="House" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc2ik"]
+size = Vector2(390, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd710"]
+size = Vector2(554, 471)
+
+[node name="House" type="StaticBody2D"]
+z_index = 1
+collision_mask = 0
+script = ExtResource("1_38vin")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, -184)
-texture = ExtResource("1_g6pch")
+texture = ExtResource("1_5e0ch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-44, -111)
+shape = SubResource("RectangleShape2D_sc2ik")
+
+[node name="BehindArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BehindArea"]
+position = Vector2(-31, -436.5)
+shape = SubResource("RectangleShape2D_gd710")
+metadata/_edit_lock_ = true

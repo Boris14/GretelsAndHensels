@@ -22,5 +22,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Image/Sprite2D.texture = chocolate_texture if sweet_type == Globals.FOOD_TYPE.CHOCOLATE else popsicle_texture if sweet_type == Globals.FOOD_TYPE.POPSICLE else waffle_texture
-
-	pass
