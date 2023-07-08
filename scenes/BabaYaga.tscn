@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd3h11dlvlsog"]
 
-[ext_resource type="Script" path="res://scipts/BabaYaga.gd" id="1_iy1xx"]
+[ext_resource type="Script" path="res://scripts/BabaYaga.gd" id="1_b18iy"]
 [ext_resource type="Texture2D" uid="uid://82vvytfqj51t" path="res://images/icon.svg" id="2_nixoe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iylg5"]
 radius = 58.3095
 
 [node name="BabaYaga" type="CharacterBody2D"]
-script = ExtResource("1_iy1xx")
+script = ExtResource("1_b18iy")
 
 [node name="BodyParts" type="Node2D" parent="."]
 
