@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://co4ro5ekv1wlr"]
+[gd_scene load_steps=3 format=3 uid="uid://vybunamo3v0l"]
 
-[ext_resource type="Texture2D" path="res://icon.svg" id="1_xjtbs"]
+[ext_resource type="Script" path="res://scripts/Kid.gd" id="1_w4tw2"]
+[ext_resource type="Texture2D" uid="uid://82vvytfqj51t" path="res://images/icon.svg" id="1_xjtbs"]
 
 [node name="Kid" type="CharacterBody2D"]
+script = ExtResource("1_w4tw2")
 
 [node name="Body" type="Node2D" parent="."]
 

@@ -1,0 +1,4 @@
+extends Node
+
+enum FOOD_PREFERENCE {POPSICLE, WAFFLE, CHOCOLATE}
+
