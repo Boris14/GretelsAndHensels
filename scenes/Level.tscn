@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2nwst2j2dh3r"]
+
+[ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Kids" type="Node2D" parent="."]
+
+[node name="House" parent="." instance=ExtResource("1_uu1e1")]
+
+[node name="Sweets" type="Node2D" parent="."]
