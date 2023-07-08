@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd3h11dlvlsog"]
+[gd_scene load_steps=5 format=3 uid="uid://dd3h11dlvlsog"]
 
 [ext_resource type="Script" path="res://scripts/BabaYaga.gd" id="1_b18iy"]
 [ext_resource type="Texture2D" uid="uid://82vvytfqj51t" path="res://images/icon.svg" id="2_nixoe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iylg5"]
 radius = 58.3095
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocy5c"]
+radius = 83.672
 
 [node name="BabaYaga" type="CharacterBody2D"]
 script = ExtResource("1_b18iy")
@@ -17,4 +20,10 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_iylg5")
+metadata/_edit_lock_ = true
+
+[node name="PickUpArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+shape = SubResource("CircleShape2D_ocy5c")
 metadata/_edit_lock_ = true
