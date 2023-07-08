@@ -62,18 +62,22 @@ func walk_towards_sweet(sweet):
 	print("walking towards sweet")
 	state = KID_STATE.RUNNING
 	move(position.direction_to(sweet.position) * speed)
+	$Anim.play("walk")
 
 func eat_sweet(delta): 
 	return func(sweet):
 		print("eating sweet");
 		state = KID_STATE.EATING;
 		sweet.eat(eat_speed*delta)
+		$Anim.play("eat")
 
 func walk_towards_house():
 	print("walking towards house")
 	state = KID_STATE.RUNNING
 	move(position.direction_to(get_house_location()) * speed)
+	$Anim.play("walk")
 
 func _physics_process(delta):
 	get_sweet_for_eating( walk_towards_sweet, eat_sweet(delta), walk_towards_house)
+	$Body.set_scale(Vector2(-sign(velocity.x),1))
 	pass

@@ -9,20 +9,21 @@
 [node name="Kids" type="Node2D" parent="."]
 
 [node name="Kid" parent="Kids" instance=ExtResource("1_uoxyl")]
-position = Vector2(214, 110)
+position = Vector2(752, 241)
 speed = 500
 
 [node name="House" parent="." instance=ExtResource("1_uu1e1")]
+position = Vector2(289, 427)
 
 [node name="Sweets" type="Node2D" parent="."]
 
 [node name="Sweet" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(361, 77)
+position = Vector2(950, 279)
 
 [node name="Sweet2" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(443, 225)
+position = Vector2(1032, 427)
 sweet_type = 1
 
 [node name="Sweet3" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(219, 302)
+position = Vector2(808, 504)
 sweet_type = 0
