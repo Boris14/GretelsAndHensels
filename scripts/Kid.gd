@@ -56,10 +56,18 @@ func drop():
 func move(vel):
 	velocity = vel
 	move_and_slide()
+func walk_towards_sweet(sweet):
+	state = KID_STATE.RUNNING
+	move(position.direction_to(sweet.position) * speed)
+
+func eat_sweet(sweet):
+	state = KID_STATE.EATING
+	sweet.eat(eat_speed)
+
+func walk_towards_house():
+	state = KID_STATE.RUNNING
+	move(position.direction_to(get_house_location()) * speed)
 
 func _physics_process(delta):
-	get_sweet_for_eating(
-		(func (sweet): move(position.direction_to(sweet.position) * speed)), 
-		(func(sweet): sweet.eat(eat_speed * delta); state = KID_STATE.EATING),
-		(func(): move(position.direction_to(get_house_location()) * speed)))
+	get_sweet_for_eating( walk_towards_sweet, eat_sweet, walk_towards_house)
 	pass
