@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4ro5ekv1wlr"]
+
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_xjtbs"]
+
+[node name="Kid" type="CharacterBody2D"]
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture = ExtResource("1_xjtbs")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
