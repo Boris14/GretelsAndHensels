@@ -1,11 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=4 format=3 uid="uid://b2nwst2j2dh3r"]
 
+[ext_resource type="PackedScene" uid="uid://vybunamo3v0l" path="res://scenes/Kid.tscn" id="1_uoxyl"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
+[ext_resource type="PackedScene" uid="uid://m8lcv02g5cda" path="res://scenes/Sweet.tscn" id="3_a2vq3"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Kids" type="Node2D" parent="."]
 
+[node name="Kid" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(214, 110)
+speed = 500
+
 [node name="House" parent="." instance=ExtResource("1_uu1e1")]
 
 [node name="Sweets" type="Node2D" parent="."]
+
+[node name="Sweet" parent="Sweets" instance=ExtResource("3_a2vq3")]
+position = Vector2(361, 77)
+
+[node name="Sweet2" parent="Sweets" instance=ExtResource("3_a2vq3")]
+position = Vector2(443, 225)
+sweet_type = 1
+
+[node name="Sweet3" parent="Sweets" instance=ExtResource("3_a2vq3")]
+position = Vector2(219, 302)
+sweet_type = 0

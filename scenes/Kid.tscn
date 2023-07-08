@@ -5,10 +5,6 @@
 
 [node name="Kid" type="CharacterBody2D"]
 script = ExtResource("1_w4tw2")
-food_preference = null
-speed = null
-eat_speed = null
-state = null
 
 [node name="Body" type="Node2D" parent="."]
 
