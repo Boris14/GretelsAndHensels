@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dufg4ej6mlub2" path="res://images/alienYellow_round.png" id="1_i2s72"]
 [ext_resource type="Script" path="res://scripts/UI/SweetSelector.gd" id="2_0po6v"]
-[ext_resource type="Texture2D" uid="uid://dor6d5327kqbk" path="res://images/alienBlue_round.png" id="2_1b5sj"]
-[ext_resource type="Texture2D" uid="uid://ij6ht6ecmlxu" path="res://images/alienGreen_round.png" id="3_2yr3l"]
-[ext_resource type="Texture2D" uid="uid://c3w5wv2s6a5oj" path="res://images/alienPink_round.png" id="4_05r1x"]
+[ext_resource type="Texture2D" uid="uid://bna3lw17gths" path="res://images/food/popsicle.png" id="3_nqahj"]
+[ext_resource type="Texture2D" uid="uid://bqbevg53atgch" path="res://images/food/chocolate.png" id="4_2so4y"]
+[ext_resource type="Texture2D" uid="uid://dnmi7c5elx6bu" path="res://images/food/waffle.png" id="5_3apho"]
 
 [node name="SweetSelector" type="TextureRect"]
 anchors_preset = 8
@@ -46,7 +46,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 100)
-texture = ExtResource("2_1b5sj")
+texture = ExtResource("3_nqahj")
 metadata/_edit_lock_ = true
 
 [node name="Chocolate" type="TextureRect" parent="."]
@@ -73,7 +73,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 100)
-texture = ExtResource("4_05r1x")
+texture = ExtResource("4_2so4y")
 metadata/_edit_lock_ = true
 
 [node name="Waffle" type="TextureRect" parent="."]
@@ -103,5 +103,8 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 100)
-texture = ExtResource("3_2yr3l")
+texture = ExtResource("5_3apho")
 metadata/_edit_lock_ = true
+
+[node name="Center" type="Node2D" parent="."]
+position = Vector2(188, 212)

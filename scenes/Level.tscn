@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=8 format=3 uid="uid://b2nwst2j2dh3r"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
 [ext_resource type="PackedScene" uid="uid://vybunamo3v0l" path="res://scenes/Kid.tscn" id="1_uoxyl"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
+[ext_resource type="Texture2D" uid="uid://dn7axhbbn6b1h" path="res://images/grass.png" id="2_hlorl"]
 [ext_resource type="PackedScene" uid="uid://m8lcv02g5cda" path="res://scenes/Sweet.tscn" id="3_a2vq3"]
+[ext_resource type="PackedScene" uid="uid://nnkbl5nl8ffd" path="res://scenes/UI/HUD.tscn" id="5_041a2"]
+[ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="6_ohgr2"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_qqujr")
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(983, 542)
+texture = ExtResource("2_hlorl")
+
+[node name="House" parent="." instance=ExtResource("1_uu1e1")]
+position = Vector2(996, 532)
+scale = Vector2(0.727476, 0.727476)
 
 [node name="Kids" type="Node2D" parent="."]
 
@@ -12,8 +25,37 @@
 position = Vector2(752, 241)
 speed = 500
 
-[node name="House" parent="." instance=ExtResource("1_uu1e1")]
-position = Vector2(289, 427)
+[node name="Kid2" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1561, 203)
+speed = 500
+
+[node name="Kid3" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1052, 644)
+speed = 500
+
+[node name="Kid4" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1475, 644)
+speed = 500
+
+[node name="Kid5" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1304, 805)
+speed = 500
+
+[node name="Kid6" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(861, 805)
+speed = 500
+
+[node name="Kid7" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(506, 936)
+speed = 500
+
+[node name="Kid8" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1242, 384)
+speed = 500
+
+[node name="Kid9" parent="Kids" instance=ExtResource("1_uoxyl")]
+position = Vector2(1762, 721)
+speed = 500
 
 [node name="Sweets" type="Node2D" parent="."]
 
@@ -27,3 +69,7 @@ sweet_type = 1
 [node name="Sweet3" parent="Sweets" instance=ExtResource("3_a2vq3")]
 position = Vector2(808, 504)
 sweet_type = 0
+
+[node name="HUD" parent="." instance=ExtResource("5_041a2")]
+
+[node name="BabaYaga" parent="." instance=ExtResource("6_ohgr2")]

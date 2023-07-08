@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://4q1pqxdvwcte"]
+[gd_scene load_steps=2 format=3 uid="uid://4q1pqxdvwcte"]
+
+[ext_resource type="Texture2D" uid="uid://dd15lx6e1lxjk" path="res://images/IMG_4400.png" id="1_g6pch"]
 
 [node name="House" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, -184)
+texture = ExtResource("1_g6pch")

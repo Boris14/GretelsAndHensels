@@ -29,7 +29,6 @@ func _physics_process(delta):
 		velocity = direction.normalized() * _speed
 	else:
 		velocity = direction
-
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		# Try to pick up a kid
 		for body in $PickUpArea.get_overlapping_bodies():
@@ -45,4 +44,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit() 
 
+	$Anim.play("walk" if velocity.length() > 0 else "idle")	
+	$Body.set_scale(Vector2(-1 if velocity.x > 0 else 1, 1))
 	move_and_slide()

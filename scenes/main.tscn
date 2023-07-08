@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c76x8j7d138i6"]
+[gd_scene load_steps=2 format=3 uid="uid://c76x8j7d138i6"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_6k77b"]
-[ext_resource type="PackedScene" uid="uid://c4rva2c2xr38r" path="res://scenes/UI/HUD.tscn" id="2_055wp"]
-[ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="3_qu76m"]
+[ext_resource type="PackedScene" uid="uid://b2nwst2j2dh3r" path="res://scenes/Level.tscn" id="1_i7lxl"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_6k77b")
 
-[node name="HUD" parent="." instance=ExtResource("2_055wp")]
-
-[node name="BabaYaga" parent="." instance=ExtResource("3_qu76m")]
+[node name="Level" parent="." instance=ExtResource("1_i7lxl")]
