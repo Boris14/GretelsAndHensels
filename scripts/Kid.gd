@@ -10,7 +10,7 @@ var sex = Globals.SEX.BOY
 @export var speed = 10
 @export var eat_speed = 10
 
-enum KID_STATE {RUNNING, EATING, CAUGHT}
+enum KID_STATE {RUNNING, EATING, CAUGHT, COOKING}
 @export var state = KID_STATE.RUNNING
 var sight_radius = 500
 var eat_radius = 10
@@ -40,7 +40,7 @@ func _ready():
 	add_to_group("kids")
 	var food_preference_r = randi_range(0,2)
 	food_preference =  Globals.FOOD_TYPE.CHOCOLATE if food_preference_r == 0 else Globals.FOOD_TYPE.POPSICLE if food_preference_r == 1 else Globals.FOOD_TYPE.WAFFLE
-	$Body/Scale/Body/food.texture = load("res://images/food/chocolate.png" if food_preference == Globals.FOOD_TYPE.CHOCOLATE else "res://images/food/popsicle.png" if food_preference == Globals.FOOD_TYPE.POPSICLE else "res://images/food/waffle.png")
+	$Body/Scale/Body/Body/food.texture = load("res://images/food/chocolate.png" if food_preference == Globals.FOOD_TYPE.CHOCOLATE else "res://images/food/popsicle.png" if food_preference == Globals.FOOD_TYPE.POPSICLE else "res://images/food/waffle.png")
 	var speed_r = randf_range(0.5, 1.5)
 	speed = 70 * speed_r
 
@@ -112,6 +112,9 @@ func walk_towards_house():
 	$Anim.play("walk")
 
 func _physics_process(delta):
+	if state == KID_STATE.COOKING:
+		$sfx_chew.stop()
+		return
 	if state == KID_STATE.CAUGHT:
 		position = carry_node.global_position + Vector2(0, 50)
 		$sfx_chew.stop()

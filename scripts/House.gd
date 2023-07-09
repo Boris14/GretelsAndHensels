@@ -48,5 +48,5 @@ func _eating_timer_handle():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$HouseShadew.z_index = 0
 

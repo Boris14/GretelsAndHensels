@@ -14,7 +14,7 @@ var magic_regen = 10.0
 @export
 var strength = 3.0
 @export
-var ability_magic = 33.3
+var ability_magic = 99.0
 
 var _speed = normal_speed
 var _max_magic = 100.0
@@ -23,6 +23,7 @@ var _curr_magic = 100.0
 var _carrying_kid = null
 var _is_stunned = false
 var _can_grab = true
+var _is_ability_pressed = false
 
 var sweet_scene = preload("res://scenes/Sweet.tscn")
 
@@ -62,6 +63,7 @@ func _on_kid_eaten(food_pref):
 			magic_regen += 8
 
 func _on_sweet_selector_button_released(food_type, position):
+	_is_ability_pressed = false
 	if food_type == null or _curr_magic < ability_magic:
 		return
 	$sfx_ability.play()
@@ -106,13 +108,13 @@ func _physics_process(delta):
 					if body.is_in_group("kids"):
 						grab_kid(body)
 						break
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and _curr_magic > ability_magic:
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and _curr_magic >= ability_magic and not _is_ability_pressed:
+		_is_ability_pressed = true
 		ability_pressed.emit()
 
 	if(velocity.length() > REACH_DIST):
-		#if not $sfx_walk.playing:
-		#	$sfx_walk.play()
-		pass
+		if not $sfx_walk.playing:
+			$sfx_walk.play()
 	else:
 		$sfx_walk.stop()
 	
