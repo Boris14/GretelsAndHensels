@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://ddqhnsjy7lgro" path="res://images/kid/girl/r_arm.png" id="8_65d7r"]
 [ext_resource type="Texture2D" uid="uid://buueahe0u13nf" path="res://images/kid/girl/body.png" id="9_q0tc0"]
 [ext_resource type="Texture2D" uid="uid://bd8kbur6gfsrm" path="res://images/kid/girl/l_arm.png" id="10_s8a8d"]
+[ext_resource type="Texture2D" uid="uid://bqbevg53atgch" path="res://images/food/chocolate.png" id="10_tjta3"]
 [ext_resource type="Texture2D" uid="uid://c5x1j1y3s56dv" path="res://images/vfx/p_candy.png" id="11_ff47b"]
 [ext_resource type="AudioStream" uid="uid://8lyciubothia" path="res://sounds/bite.wav" id="11_lowso"]
 [ext_resource type="Texture2D" uid="uid://c031gbj1k3rxs" path="res://images/vfx/p_candy_2.png" id="12_6w7nt"]
 [ext_resource type="Texture2D" uid="uid://b6v4pig85blk1" path="res://images/vfx/p_choco.png" id="13_jvgw6"]
 [ext_resource type="Texture2D" uid="uid://drhxay07k484q" path="res://images/vfx/p_waffle_1.png" id="14_0yipb"]
 [ext_resource type="Texture2D" uid="uid://jc7e2l5xet52" path="res://images/vfx/p_waffle_2.png" id="15_lbjq7"]
-[ext_resource type="AudioStream" uid="uid://b3jfqvn7lrrpe" path="res://sounds/chew_kid.wav" id="17_8vx7c"]
 
 [sub_resource type="Animation" id="Animation_jaras"]
 resource_name = "eat_house"
@@ -1678,6 +1678,11 @@ texture = ExtResource("8_65d7r")
 scale = Vector2(1.01608, 1.01608)
 texture = ExtResource("9_q0tc0")
 
+[node name="food" type="Sprite2D" parent="Body/Scale/Body/Body"]
+position = Vector2(24.6044, 39.367)
+scale = Vector2(0.532549, 0.532549)
+texture = ExtResource("10_tjta3")
+
 [node name="L_Arm" type="Sprite2D" parent="Body/Scale/Body"]
 position = Vector2(138, 23)
 texture = ExtResource("10_s8a8d")
@@ -1805,7 +1810,3 @@ libraries = {
 [node name="sfx_bite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_lowso")
 volume_db = -13.117
-
-[node name="sfx_chew" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_8vx7c")
-volume_db = -20.0

@@ -110,8 +110,9 @@ func _physics_process(delta):
 		ability_pressed.emit()
 
 	if(velocity.length() > REACH_DIST):
-		if not $sfx_walk.playing:
-			$sfx_walk.play()
+		#if not $sfx_walk.playing:
+		#	$sfx_walk.play()
+		pass
 	else:
 		$sfx_walk.stop()
 	

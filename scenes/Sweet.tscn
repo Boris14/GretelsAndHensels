@@ -201,7 +201,6 @@ _data = {
 }
 
 [node name="Sweet" type="Node2D"]
-scale = Vector2(1.2, 1.2)
 script = ExtResource("1_se1bc")
 chocolate_texture = ExtResource("2_rfbkq")
 popsicle_texture = ExtResource("3_id8aj")
