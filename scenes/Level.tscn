@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b2nwst2j2dh3r"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
-[ext_resource type="PackedScene" uid="uid://vybunamo3v0l" path="res://scenes/Kid.tscn" id="1_uoxyl"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
 [ext_resource type="Texture2D" uid="uid://dn7axhbbn6b1h" path="res://images/grass.png" id="2_krsmx"]
 [ext_resource type="PackedScene" uid="uid://m8lcv02g5cda" path="res://scenes/Sweet.tscn" id="3_a2vq3"]
 [ext_resource type="PackedScene" uid="uid://nnkbl5nl8ffd" path="res://scenes/UI/HUD.tscn" id="5_041a2"]
+[ext_resource type="PackedScene" uid="uid://bcfbrs2fmsrj5" path="res://scenes/Kids.tscn" id="5_gpvmb"]
 [ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="6_ohgr2"]
 [ext_resource type="PackedScene" uid="uid://yhttkxroyceu" path="res://scenes/Pot.tscn" id="8_0q3or"]
 
@@ -23,19 +23,7 @@ scale = Vector2(0.727476, 0.727476)
 [node name="Pot" parent="." instance=ExtResource("8_0q3or")]
 position = Vector2(1275, 456)
 
-[node name="Kids" type="Node2D" parent="."]
-
-[node name="Kid" parent="Kids" instance=ExtResource("1_uoxyl")]
-position = Vector2(752, 241)
-speed = 500
-
-[node name="Kid2" parent="Kids" instance=ExtResource("1_uoxyl")]
-position = Vector2(1561, 203)
-speed = 500
-
-[node name="Kid3" parent="Kids" instance=ExtResource("1_uoxyl")]
-position = Vector2(1052, 644)
-speed = 500
+[node name="Kids" parent="." instance=ExtResource("5_gpvmb")]
 
 [node name="Sweets" type="Node2D" parent="."]
 

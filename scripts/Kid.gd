@@ -41,7 +41,7 @@ func _ready():
 	var food_preference_r = randi_range(0,2)
 	food_preference =  Globals.FOOD_TYPE.CHOCOLATE if food_preference_r == 0 else Globals.FOOD_TYPE.POPSICLE if food_preference_r == 1 else Globals.FOOD_TYPE.WAFFLE
 	var speed_r = randf_range(0.5, 1.5)
-	speed = 100 * speed_r
+	speed = 70 * speed_r
 
 func _escape_timer_handle():
 	if carry_node:
