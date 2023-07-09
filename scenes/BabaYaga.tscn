@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd3h11dlvlsog"]
+[gd_scene load_steps=18 format=3 uid="uid://dd3h11dlvlsog"]
 
 [ext_resource type="Script" path="res://scripts/BabaYaga.gd" id="1_b18iy"]
 [ext_resource type="Texture2D" uid="uid://buw00501uk4ul" path="res://images/baba/r_arm.png" id="2_0i0y3"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bmjix2vjwx67h" path="res://sounds/grab_kid.wav" id="8_0w0ox"]
 [ext_resource type="AudioStream" uid="uid://huvl5l346kke" path="res://sounds/Running-footsteps-in-grass-www.fesliyanstudios.com.mp3" id="9_cd2it"]
 [ext_resource type="AudioStream" uid="uid://14a6ppby8wxo" path="res://sounds/Short - Ploppy Plop.wav" id="10_p4taj"]
+[ext_resource type="AudioStream" uid="uid://bhqb7bj0latwf" path="res://sounds/Video-Game-Positive-Sound-A1-8bit-www.fesliyanstudios.com.mp3" id="11_4wfh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iylg5"]
 radius = 58.3095
@@ -855,3 +856,7 @@ volume_db = -21.136
 
 [node name="sfx_ability" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_p4taj")
+volume_db = -10.0
+
+[node name="sfx_power_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4wfh2")

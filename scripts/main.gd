@@ -49,10 +49,22 @@ func _ready():
 	_bodies.append($BabaYaga)
 	_bodies.append($Pot)
 	randomize()
-	change_day()
+	change_day(true)
 
-func change_day():
+func stop_crickets():
+	$sfx_night.stop()
+	
+func stop_birds():
+	$sfx_day.stop()
+
+func change_day(first = false):
 	_changing_day = true
+	if not first and _is_day:
+		$sfx_night.play()
+		get_tree().create_timer(2.0).connect("timeout", stop_crickets)
+	else:
+		$sfx_day.play()
+		get_tree().create_timer(2.0).connect("timeout", stop_birds)
 	await get_tree().create_timer(day_duration).timeout
 	_changing_day = false
 	_is_day = not _is_day

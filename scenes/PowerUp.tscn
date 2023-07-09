@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ujtftfkp3ja7"]
+
+[ext_resource type="Script" path="res://scripts/PowerUp.gd" id="1_7eqcm"]
+[ext_resource type="Texture2D" uid="uid://cds6h8uv82r24" path="res://images/UI/IMG_4431.png" id="1_117tk"]
+
+[node name="PowerUp" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_117tk")
+expand_mode = 1
+script = ExtResource("1_7eqcm")

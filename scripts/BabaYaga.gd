@@ -25,7 +25,10 @@ var _is_stunned = false
 var _can_grab = true
 var _is_ability_pressed = false
 
+const PowerUp = preload("res://scripts/PowerUp.gd")
+
 var sweet_scene = preload("res://scenes/Sweet.tscn")
+var power_up_scene = preload("res://scenes/PowerUp.tscn")
 
 func _block_grab():
 	_can_grab = false
@@ -54,6 +57,10 @@ func _on_kid_escaped():
 	_is_stunned = false
 
 func _on_kid_eaten(food_pref):
+	$sfx_power_up.play()
+	var power_up = power_up_scene.instantiate() as PowerUp
+	power_up.init(food_pref, position - Vector2(80, 100))
+	get_node("../").add_child(power_up)
 	match food_pref:
 		Globals.FOOD_TYPE.POPSICLE:
 			_speed += 50
@@ -80,7 +87,7 @@ func _physics_process(delta):
 		$Anim.play("idle")
 		return
 		
-	_speed = normal_speed * (speed_carry_mult if _carrying_kid else 1)
+	_speed = normal_speed
 	_curr_magic = clamp(_curr_magic + magic_regen * delta, 0, _max_magic)
 	magic_changed.emit(_curr_magic, _max_magic)
 
