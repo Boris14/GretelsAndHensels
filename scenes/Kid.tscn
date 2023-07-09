@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vybunamo3v0l"]
+[gd_scene load_steps=33 format=3 uid="uid://vybunamo3v0l"]
 
 [ext_resource type="Script" path="res://scripts/Kid.gd" id="1_w4tw2"]
 [ext_resource type="Texture2D" uid="uid://c167nv8iecbtc" path="res://images/kid/girl/head.png" id="2_2agc7"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://drhxay07k484q" path="res://images/vfx/p_waffle_1.png" id="14_0yipb"]
 [ext_resource type="Texture2D" uid="uid://jc7e2l5xet52" path="res://images/vfx/p_waffle_2.png" id="15_lbjq7"]
 [ext_resource type="AudioStream" uid="uid://b3jfqvn7lrrpe" path="res://sounds/chew_kid.wav" id="17_8vx7c"]
+[ext_resource type="AudioStream" uid="uid://u0yuoomaq4j1" path="res://sounds/chocolate1.wav" id="19_3s2aw"]
 
 [sub_resource type="Animation" id="Animation_jaras"]
 resource_name = "eat_house"
@@ -1815,3 +1816,12 @@ volume_db = -13.117
 [node name="sfx_chew" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_8vx7c")
 volume_db = -20.0
+
+[node name="sfx_speak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_3s2aw")
+volume_db = -17.045
+
+[node name="speak_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="speak_timer" to="." method="_on_speak_timer_timeout"]

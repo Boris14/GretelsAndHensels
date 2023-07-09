@@ -136,3 +136,11 @@ func _physics_process(delta):
 func _on_chew_sound_finished():
 	if state == KID_STATE.EATING:
 		$sfx_chew.play()
+
+
+func _on_speak_timer_timeout():
+	#10% change to trigger $sfx_speak.play()
+	if state == KID_STATE.RUNNING and randf() < 0.1:
+		$sfx_speak.stream = load("res://sounds/chocolate1.wav") if food_preference == Globals.FOOD_TYPE.CHOCOLATE else load("res://sounds/popsicle1.wav") if food_preference == Globals.FOOD_TYPE.POPSICLE else load("res://sounds/waffle1.wav")
+		$sfx_speak.play()
+	pass # Replace with function body.

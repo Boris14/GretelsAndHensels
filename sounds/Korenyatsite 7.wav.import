@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhj58tbucwaaw"
+path="res://.godot/imported/Korenyatsite 7.wav-c70bef87cea975e8d8d7a92d9f626d11.sample"
+
+[deps]
+
+source_file="res://sounds/Korenyatsite 7.wav"
+dest_files=["res://.godot/imported/Korenyatsite 7.wav-c70bef87cea975e8d8d7a92d9f626d11.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
