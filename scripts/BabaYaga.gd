@@ -63,9 +63,9 @@ func _physics_process(delta):
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _can_grab:
 		if _carrying_kid:
-			for body in $PickUpArea.get_overlapping_bodies():
-				if body.is_in_group("pots"):
-					body.start_cooking(_carrying_kid)
+			for area in $PickUpArea.get_overlapping_areas():
+				if area.is_in_group("pots"):
+					area.start_cooking(_carrying_kid)
 			drop_kid()
 		else:
 			for body in $PickUpArea.get_overlapping_bodies():
@@ -73,7 +73,6 @@ func _physics_process(delta):
 					grab_kid(body)
 					break
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		# Open ability UI
 		ability_pressed.emit(_curr_magic >= _max_magic)
 
 	$Anim.play("walk" if velocity.length() > REACH_DIST else "idle")	
