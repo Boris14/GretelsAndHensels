@@ -49,60 +49,108 @@ z_index = 2
 position = Vector2(1342, 536)
 
 [node name="Branches" type="Node2D" parent="."]
+z_index = 3
 
 [node name="Branch1" type="Sprite2D" parent="Branches"]
-position = Vector2(-35, 11)
-rotation = 2.15645
+position = Vector2(-51, 3)
+rotation = 1.82282
 scale = Vector2(0.655647, 0.655647)
 texture = ExtResource("9_163kd")
 offset = Vector2(47.9566, -243.509)
 script = ExtResource("10_08pn8")
 
 [node name="Branch2" type="Sprite2D" parent="Branches"]
-position = Vector2(60.814, -15.5233)
+position = Vector2(104, -38)
 rotation = 2.36992
 scale = Vector2(0.46159, 0.46159)
 texture = ExtResource("11_7bjse")
 offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
 
 [node name="Branch8" type="Sprite2D" parent="Branches"]
-position = Vector2(-73, 59)
-rotation = 2.35812
+position = Vector2(-25, 108)
+rotation = 2.46964
 scale = Vector2(0.46159, 0.46159)
 texture = ExtResource("11_7bjse")
 offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
 
 [node name="Branch3" type="Sprite2D" parent="Branches"]
-position = Vector2(-100.014, 1124.5)
-rotation = 0.92032
-scale = Vector2(0.655647, 0.655647)
+position = Vector2(522, -49)
+rotation = 2.55342
+scale = Vector2(0.414311, 0.414311)
 texture = ExtResource("9_163kd")
 offset = Vector2(47.9566, -243.509)
+script = ExtResource("10_08pn8")
+
+[node name="Branch11" type="Sprite2D" parent="Branches"]
+position = Vector2(475, -32)
+rotation = 3.04898
+scale = Vector2(0.31817, 0.31817)
+texture = ExtResource("9_163kd")
+offset = Vector2(47.9566, -243.509)
+script = ExtResource("10_08pn8")
 
 [node name="Branch4" type="Sprite2D" parent="Branches"]
-position = Vector2(33.4702, 1060.43)
-rotation = 1.1338
+position = Vector2(1388, -44.9999)
+rotation = 3.82196
+scale = Vector2(0.34115, 0.34115)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
+
+[node name="Branch12" type="Sprite2D" parent="Branches"]
+position = Vector2(2474, 1060)
+rotation = -0.978147
 scale = Vector2(0.46159, 0.46159)
 texture = ExtResource("11_7bjse")
 offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
+
+[node name="Branch13" type="Sprite2D" parent="Branches"]
+position = Vector2(1162, -38)
+rotation = -2.50764
+scale = Vector2(0.276712, 0.276712)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
 
 [node name="Branch5" type="Sprite2D" parent="Branches"]
-position = Vector2(1898.08, -26.5424)
-rotation = -2.18007
+position = Vector2(1875, -75)
+rotation = -2.2771
 scale = Vector2(0.655647, 0.655647)
 texture = ExtResource("9_163kd")
 offset = Vector2(47.9566, -243.509)
+script = ExtResource("10_08pn8")
 
 [node name="Branch6" type="Sprite2D" parent="Branches"]
-position = Vector2(1989, -19.0001)
+position = Vector2(1993, -4)
 rotation = -1.9666
 scale = Vector2(0.46159, 0.46159)
 texture = ExtResource("11_7bjse")
 offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
 
 [node name="Branch7" type="Sprite2D" parent="Branches"]
-position = Vector2(2013, 76)
+position = Vector2(2000, 101)
 rotation = -1.81786
 scale = Vector2(0.46159, 0.46159)
 texture = ExtResource("11_7bjse")
 offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
+
+[node name="Branch9" type="Sprite2D" parent="Branches"]
+position = Vector2(1424, -42)
+rotation = -3.44567
+scale = Vector2(0.321048, 0.321048)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
+
+[node name="Branch10" type="Sprite2D" parent="Branches"]
+position = Vector2(-21, 353)
+rotation = 2.30968
+scale = Vector2(0.300732, 0.300732)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+script = ExtResource("10_08pn8")
