@@ -4,11 +4,18 @@ const HUD = preload("res://scripts/UI/HUD.gd")
 const SweetSelector = preload("res://scripts/UI/SweetSelector.gd")
 const BabaYaga = preload("res://scripts/BabaYaga.gd")
 
+const NIGHT_COLOR = Color8(12, 19, 67)
+
 var _bodies = []
+var _curr_lighting = 1.0
+
+@export var day_duration = 8.0
 
 @onready var hud = $HUD as HUD
 @onready var baba_yaga = $BabaYaga as BabaYaga
 #@onready var sweet_selector = $HUD/Sweet as SweetSelector
+
+var _is_day = true
 
 func _sort_bodies_by_y_pos():
 	for _body in _bodies:
@@ -39,6 +46,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var _step = delta * (-0.05 if _is_day else 0.05)
+	_curr_lighting += _step
+	if _is_day and _curr_lighting <= 0.4:
+		_is_day = false
+	elif not _is_day and _curr_lighting >= 1:
+		_is_day = true
+	print(_curr_lighting)
+	modulate = NIGHT_COLOR.lightened(_curr_lighting)
+	
 	_sort_bodies_by_y_pos()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
