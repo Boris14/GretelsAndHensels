@@ -141,6 +141,6 @@ func _on_chew_sound_finished():
 func _on_speak_timer_timeout():
 	#10% change to trigger $sfx_speak.play()
 	if state == KID_STATE.RUNNING and randf() < 0.1:
-		$sfx_speak.stream = load("res://sounds/chocolate1.wav") if food_preference == Globals.FOOD_TYPE.CHOCOLATE else load("res://sounds/popsicle1.wav") if food_preference == Globals.FOOD_TYPE.POPSICLE else load("res://sounds/waffle1.wav")
+		$sfx_speak.stream = load("res://sounds/chocolate"+str(randi_range(1,3))+".wav") if food_preference == Globals.FOOD_TYPE.CHOCOLATE else load("res://sounds/popsicle"+str(randi_range(1,3))+".wav") if food_preference == Globals.FOOD_TYPE.POPSICLE else load("res://sounds/waffle"+str(randi_range(1,3))+".wav")
 		$sfx_speak.play()
 	pass # Replace with function body.
