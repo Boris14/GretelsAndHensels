@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 signal button_released(selected_food)
 var sweet_scene = preload("res://scenes/Sweet.tscn")
@@ -9,7 +9,8 @@ func _ready():
 	pass # Replace with function body.
 
 func spawn_sweeet(sweet_type):
-	print("spawn sweet")
+	if sweet_type == null:
+		return
 	var sweet = sweet_scene.instantiate()
 	sweet.position = $Center.get_global_position()
 	

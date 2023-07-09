@@ -9,9 +9,11 @@ enum POT_STATE {EMPTY, COOKING, READY}
 @export var state = POT_STATE.EMPTY
 
 var _kid = null
+@onready var _cook_sprites = get_node("CookSprites")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_cook_sprites.visible = false
 	add_to_group("pots")
 	pass # Replace with function body.
 
@@ -22,9 +24,11 @@ func _process(delta):
 func start_cooking(kid):
 	if not state == POT_STATE.EMPTY:
 		return false
+	_cook_sprites.visible = true
 	state = POT_STATE.COOKING
 	_kid = kid
-	_kid.diabled = true
+	_kid.get_node("Collision").disabled = true
+	_kid.visible = false
 	await get_tree().create_timer(cooking_time).timeout
 	state = POT_STATE.READY
 	kid_cooked.emit()
@@ -36,6 +40,7 @@ func eat_kid():
 	kid_eaten.emit(_kid.food_preference)
 	_kid.queue_free()
 	_kid = null
+	_cook_sprites.visible = false
 	state = POT_STATE.EMPTY
 	return true
 	
