@@ -37,6 +37,7 @@ z_index = 2
 position = Vector2(1342, 536)
 
 [node name="Branches" type="Node2D" parent="."]
+process_mode = 3
 z_index = 3
 
 [node name="Branch1" type="Sprite2D" parent="Branches"]

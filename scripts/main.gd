@@ -39,6 +39,7 @@ func _sort_bodies_by_y_pos():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused = true
 	$Pot.connect("kid_eaten", baba_yaga._on_kid_eaten)
 	
 	_bodies.append($House)
@@ -75,3 +76,8 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit() 
+
+
+func _on_book_book_closed():
+	get_tree().paused= false
+	pass # Replace with function body.

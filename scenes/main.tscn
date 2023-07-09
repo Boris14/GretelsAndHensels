@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c76x8j7d138i6"]
+[gd_scene load_steps=3 format=3 uid="uid://c76x8j7d138i6"]
 
 [ext_resource type="PackedScene" uid="uid://b2nwst2j2dh3r" path="res://scenes/Level.tscn" id="1_i7lxl"]
+[ext_resource type="PackedScene" uid="uid://cuktgfpm5krt" path="res://scenes/MainMenu.tscn" id="2_lmowy"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_i7lxl")]
+
+[node name="MainMenu" parent="." instance=ExtResource("2_lmowy")]
+z_index = 74
+
+[connection signal="book_closed" from="MainMenu/Book" to="Level" method="_on_book_book_closed"]
+
+[editable path="MainMenu"]
