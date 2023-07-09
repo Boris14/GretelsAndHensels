@@ -30,7 +30,7 @@ func _ready():
 	$Body/Scale/Body/R_Leg.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/r_leg.png")
 	$Body/Scale/Body/Body.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/body.png")
 
-	
+	$sfx_chew.connect("finished", _on_chew_sound_finished)
 	
 	#$Area2D/CollisionShape2D.shape.radius = eat_radius
 	escape_timer.connect("timeout", _escape_timer_handle)
@@ -113,8 +113,13 @@ func walk_towards_house():
 func _physics_process(delta):
 	if state == KID_STATE.CAUGHT:
 		position = carry_node.global_position + Vector2(0, 50)
+		$sfx_chew.stop()
 		return
-		
+	elif state == KID_STATE.EATING and not $sfx_chew.playing:
+		$sfx_chew.play()
+	elif not $sfx_chew.playing:
+		$sfx_chew.stop()
+	
 	$Body/vfx_popsicle_1.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.POPSICLE
 	$Body/vfx_popsicle_2.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.POPSICLE
 	$Body/vfx_chocolate_1.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.CHOCOLATE
@@ -123,3 +128,7 @@ func _physics_process(delta):
 	$Body/vfx_waffle_2.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.WAFFLE
 	get_sweet_for_eating( walk_towards_sweet, eat_sweet(delta), walk_towards_house)
 	$Body.set_scale(Vector2(-sign(velocity.x),1))
+
+func _on_chew_sound_finished():
+	if state == KID_STATE.EATING:
+		$sfx_chew.play()

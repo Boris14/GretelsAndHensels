@@ -64,6 +64,7 @@ func _on_kid_eaten(food_pref):
 func _on_sweet_selector_button_released(food_type, position):
 	if food_type == null or _curr_magic < ability_magic:
 		return
+	$sfx_ability.play()
 	_curr_magic -= ability_magic
 	magic_changed.emit(_curr_magic, _max_magic)
 	var sweet = sweet_scene.instantiate()
@@ -108,6 +109,12 @@ func _physics_process(delta):
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and _curr_magic > ability_magic:
 		ability_pressed.emit()
 
+	if(velocity.length() > REACH_DIST):
+		if not $sfx_walk.playing:
+			$sfx_walk.play()
+	else:
+		$sfx_walk.stop()
+	
 	$Anim.play("walk" if velocity.length() > REACH_DIST else "idle")	
 	$Body.set_scale(Vector2(-1 if velocity.x > 0 else 1, 1))
 	move_and_slide()
