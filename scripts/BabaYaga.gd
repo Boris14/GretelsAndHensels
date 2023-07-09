@@ -8,7 +8,7 @@ const REACH_DIST = 8.0
 @export
 var normal_speed = 300.0
 @export
-var speed_carry_mult = 0.6
+var speed_carry_mult = 1
 @export
 var magic_regen = 10.0
 @export
@@ -18,7 +18,7 @@ var ability_magic = 33.3
 
 var _speed = normal_speed
 var _max_magic = 100.0
-var _curr_magic = 0.0
+var _curr_magic = 100.0
 
 var _carrying_kid = null
 var _is_stunned = false
