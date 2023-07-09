@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal ability_pressed(can_activate)
+signal magic_changed(new_magic, max_magic)
 
 const REACH_DIST = 8.0
 
@@ -9,9 +10,11 @@ var normal_speed = 300.0
 @export
 var speed_carry_mult = 0.6
 @export
-var magic_regen = 2.0
+var magic_regen = 10.0
 @export
 var strength = 3.0
+@export
+var ability_magic = 33.3
 
 var _speed = normal_speed
 var _max_magic = 100.0
@@ -20,6 +23,8 @@ var _curr_magic = 0.0
 var _carrying_kid = null
 var _is_stunned = false
 var _can_grab = true
+
+var sweet_scene = preload("res://scenes/Sweet.tscn")
 
 func _block_grab():
 	_can_grab = false
@@ -47,14 +52,35 @@ func _on_kid_escaped():
 	await get_tree().create_timer(2.0).timeout
 	_is_stunned = false
 
+func _on_kid_eaten(food_pref):
+	match food_pref:
+		Globals.FOOD_TYPE.POPSICLE:
+			_speed += 50
+		Globals.FOOD_TYPE.WAFFLE:
+			strength += 1
+		Globals.FOOD_TYPE.CHOCOLATE:
+			magic_regen += 8
+
+func _on_sweet_selector_button_released(food_type, position):
+	if food_type == null or _curr_magic < ability_magic:
+		return
+	_curr_magic -= ability_magic
+	magic_changed.emit(_curr_magic, _max_magic)
+	var sweet = sweet_scene.instantiate()
+	sweet.position = position
+	sweet.sweet_type = food_type
+	get_node("../Sweets").add_child(sweet)
+	
+
 func _physics_process(delta):
 	if _is_stunned:
 		$Anim.play("idle")
 		return
 		
 	_speed = normal_speed * (speed_carry_mult if _carrying_kid else 1)
-	_curr_magic = clamp(_curr_magic + magic_regen, 0, _max_magic)
-	
+	_curr_magic = clamp(_curr_magic + magic_regen * delta, 0, _max_magic)
+	magic_changed.emit(_curr_magic, _max_magic)
+
 	# Movement
 	var direction = get_viewport().get_mouse_position() - position
 	if direction.length() > REACH_DIST:
@@ -73,8 +99,7 @@ func _physics_process(delta):
 			for area in $PickUpArea.get_overlapping_areas():
 				if area.is_in_group("pots"):
 					ate_kid = area.eat_kid()
-					break
-					
+					break	
 			if not ate_kid:
 				for body in $PickUpArea.get_overlapping_bodies():
 					if body.is_in_group("kids"):

@@ -1,7 +1,7 @@
 extends Control
 
-signal button_released(selected_food)
-var sweet_scene = preload("res://scenes/Sweet.tscn")
+signal button_released(selected_food, position)
+
 var _selected_food = null
 
 # Called when the node enters the scene tree for the first time.
@@ -11,11 +11,6 @@ func _ready():
 func spawn_sweeet(sweet_type):
 	if sweet_type == null:
 		return
-	var sweet = sweet_scene.instantiate()
-	sweet.position = $Center.get_global_position()
-	
-	sweet.sweet_type = sweet_type
-	get_node("../../Sweets").add_child(sweet)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,5 +35,5 @@ func _process(delta):
 	if Input.is_action_just_released("mouse_right"):
 		print(_selected_food)
 		spawn_sweeet(_selected_food)
-		button_released.emit(_selected_food)
+		button_released.emit(_selected_food, $Center.get_global_position())
 		queue_free()
