@@ -4,7 +4,7 @@ signal escaped
 
 const boy_body_scene = preload("res://scenes/BoyBody.tscn")
 const girl_body_scene = preload("res://scenes/GrilBody.tscn")
-
+var sex = Globals.SEX.BOY
 @export var food_preference = Globals.FOOD_TYPE.CHOCOLATE
 
 @export var speed = 10
@@ -18,11 +18,20 @@ var carry_node = null
 var escape_after_caught = 1.
 
 func _ready():
+	sex  =  Globals.SEX.BOY if randi_range(0,1) == 0 else Globals.SEX.GIRL
+	$Body/Scale/Body/Head.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/head.png")
+	$Body/Scale/Body/Head/Eyes.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/eyes.png")
+	$Body/Scale/Body/Head/Eyes/Irises.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/irises.png")
+	$Body/Scale/Body/L_Arm.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/l_arm.png")
+	# repeat above for r_hand, l_leg, r_leg, body
+	$Body/Scale/Body/R_Arm.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/r_arm.png")
+	$Body/Scale/Body/L_Leg.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/l_leg.png")
+	$Body/Scale/Body/R_Leg.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/r_leg.png")
+	$Body/Scale/Body/Body.texture  = load("res://images/kid/" + ("girl" if sex == Globals.SEX.GIRL else "boy") + "/body.png")
+
+	
+	
 	#$Area2D/CollisionShape2D.shape.radius = eat_radius
-	var _body_scene = boy_body_scene if randi() % 2 else girl_body_scene
-	#var _body = _body_scene.instantiate()
-	#_body.set_name("Body")
-	#$Body/Scale.add_child(_body)
 	add_to_group("kids")
 	var food_preference_r = randi_range(0,2)
 	food_preference =  Globals.FOOD_TYPE.CHOCOLATE if food_preference_r == 0 else Globals.FOOD_TYPE.POPSICLE if food_preference_r == 1 else Globals.FOOD_TYPE.WAFFLE

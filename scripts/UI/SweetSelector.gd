@@ -12,6 +12,7 @@ func spawn_sweeet(sweet_type):
 	print("spawn sweet")
 	var sweet = sweet_scene.instantiate()
 	sweet.position = $Center.get_global_position()
+	
 	sweet.sweet_type = sweet_type
 	get_node("../../Sweets").add_child(sweet)
 

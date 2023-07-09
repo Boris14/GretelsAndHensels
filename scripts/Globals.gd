@@ -1,4 +1,5 @@
 extends Node
 
 enum FOOD_TYPE {POPSICLE, WAFFLE, CHOCOLATE}
+enum SEX {BOY, GIRL}
 
