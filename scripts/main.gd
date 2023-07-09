@@ -11,6 +11,10 @@ var _bodies = []
 #@onready var sweet_selector = $HUD/Sweet as SweetSelector
 
 func _sort_bodies_by_y_pos():
+	for _body in _bodies:
+		if not _body:
+			_bodies.erase(_body)
+	
 	for i in range(0, _bodies.size() - 1):
 		for j in range(i, _bodies.size()):
 			if _bodies[i].get_global_position().y > _bodies[j].get_global_position().y:

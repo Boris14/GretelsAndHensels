@@ -17,11 +17,13 @@ position = Vector2(983, 542)
 texture = ExtResource("2_krsmx")
 
 [node name="House" parent="." instance=ExtResource("1_uu1e1")]
+z_index = 0
 position = Vector2(996, 532)
 scale = Vector2(0.727476, 0.727476)
 
 [node name="Pot" parent="." instance=ExtResource("8_0q3or")]
-position = Vector2(1275, 456)
+position = Vector2(1250, 541)
+scale = Vector2(0.7, 0.7)
 
 [node name="Kids" type="Node2D" parent="."]
 

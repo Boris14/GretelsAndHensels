@@ -68,10 +68,17 @@ func _physics_process(delta):
 					area.start_cooking(_carrying_kid)
 			drop_kid()
 		else:
-			for body in $PickUpArea.get_overlapping_bodies():
-				if body.is_in_group("kids"):
-					grab_kid(body)
+			var ate_kid = false
+			for area in $PickUpArea.get_overlapping_areas():
+				if area.is_in_group("pots"):
+					ate_kid = area.eat_kid()
 					break
+					
+			if not ate_kid:
+				for body in $PickUpArea.get_overlapping_bodies():
+					if body.is_in_group("kids"):
+						grab_kid(body)
+						break
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		ability_pressed.emit(_curr_magic >= _max_magic)
 
