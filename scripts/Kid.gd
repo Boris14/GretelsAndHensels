@@ -15,7 +15,8 @@ enum KID_STATE {RUNNING, EATING, CAUGHT}
 var sight_radius = 500
 var eat_radius = 10
 var carry_node = null
-var escape_after_caught = 1.
+
+@onready var escape_timer = Timer.new()
 
 func _ready():
 	sex  =  Globals.SEX.BOY if randi_range(0,1) == 0 else Globals.SEX.GIRL
@@ -32,16 +33,24 @@ func _ready():
 	
 	
 	#$Area2D/CollisionShape2D.shape.radius = eat_radius
+	escape_timer.connect("timeout", _escape_timer_handle)
+	escape_timer.set_one_shot(true)
+	add_child(escape_timer)
+	#$Area2D/CollisionShape2D.shape.radius = eat_radius
 	add_to_group("kids")
 	var food_preference_r = randi_range(0,2)
 	food_preference =  Globals.FOOD_TYPE.CHOCOLATE if food_preference_r == 0 else Globals.FOOD_TYPE.POPSICLE if food_preference_r == 1 else Globals.FOOD_TYPE.WAFFLE
 	var speed_r = randf_range(0.5, 1.5)
 	speed = 100 * speed_r
 
-func try_to_escape(_witch_strength):
-	await get_tree().create_timer(_witch_strength * 1.0).timeout
+func _escape_timer_handle():
 	if carry_node:
 		escaped.emit()
+	escape_timer.stop()
+
+func try_to_escape(_witch_strength):
+	escape_timer.set_wait_time(_witch_strength * 1.0)
+	escape_timer.start()
 
 func get_house_location():
 	var house = get_node("../../House")
@@ -78,6 +87,7 @@ func drop():
 	rotate(-PI/2)
 	carry_node = null
 	state = KID_STATE.RUNNING
+	escape_timer.stop()
 
 func move(vel):
 	velocity = vel
