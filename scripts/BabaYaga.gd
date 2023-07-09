@@ -95,6 +95,7 @@ func _physics_process(delta):
 		if _carrying_kid:
 			for area in $PickUpArea.get_overlapping_areas():
 				if area.is_in_group("pots"):
+					_carrying_kid.start_cooking()
 					area.start_cooking(_carrying_kid)
 			drop_kid()
 		else:

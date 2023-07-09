@@ -49,6 +49,9 @@ func _escape_timer_handle():
 		escaped.emit()
 		$sfx_bite.play()
 	escape_timer.stop()
+	
+func start_cooking():
+	state = KID_STATE.COOKING
 
 func try_to_escape(_witch_strength):
 	escape_timer.set_wait_time(_witch_strength * 1.0)
@@ -101,12 +104,18 @@ func walk_towards_sweet(sweet):
 	$Anim.play("walk")
 
 func eat_sweet(delta): 
+	if state == KID_STATE.COOKING:
+		return
 	return func(sweet):
+		if state == KID_STATE.COOKING:
+			return
 		state = KID_STATE.EATING;
 		sweet.eat(eat_speed * delta)
 		$Anim.play("eat_house")
 
 func walk_towards_house():
+	if state == KID_STATE.COOKING:
+		return
 	state = KID_STATE.RUNNING
 	move(position.direction_to(get_house_location()) * speed)
 	$Anim.play("walk")

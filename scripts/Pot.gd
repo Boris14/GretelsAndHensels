@@ -8,7 +8,7 @@ signal kid_eaten(kid_food_pref)
 enum POT_STATE {EMPTY, COOKING, READY}
 @export var state = POT_STATE.EMPTY
 
-var _kid = null
+var _kid_food_pref = null
 @onready var _cook_sprites = get_node("imgs/CookSprites")
 
 # Called when the node enters the scene tree for the first time.
@@ -27,9 +27,8 @@ func start_cooking(kid):
 		return false
 	_cook_sprites.visible = true
 	state = POT_STATE.COOKING
-	_kid = kid
-	_kid.get_node("Collision").disabled = true
-	_kid.visible = false
+	_kid_food_pref = kid.food_preference
+	kid.queue_free()
 	$sfx_plop.play()
 	
 	await $sfx_plop.finished
@@ -46,9 +45,7 @@ func start_cooking(kid):
 func eat_kid():
 	if not state == POT_STATE.READY:
 		return false
-	kid_eaten.emit(_kid.food_preference)
-	_kid.queue_free()
-	_kid = null
+	kid_eaten.emit(_kid_food_pref)
 	$Anim.play("RESET")
 	$sfx_chew_kid.play()
 

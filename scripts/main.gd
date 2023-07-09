@@ -21,6 +21,9 @@ var _changing_day = false
 var _is_day = true
 var _days_count = 0
 
+func change_brightness(_modulate):
+	$Grass.modulate = _modulate
+
 func _sort_bodies_by_y_pos():
 	for _body in _bodies:
 		if not _body:
@@ -62,9 +65,9 @@ func _process(delta):
 	if not _changing_day:
 		var _step = delta * (-0.1 if _is_day else 0.1)
 		_curr_lighting += _step
-		if (_is_day and _curr_lighting <= 0.5) or (not _is_day and _curr_lighting >= 1):
+		if (_is_day and _curr_lighting <= 0.4) or (not _is_day and _curr_lighting >= 1):
 			change_day()
-	modulate = NIGHT_COLOR.lightened(_curr_lighting)
+	change_brightness(NIGHT_COLOR.lightened(_curr_lighting))
 	
 	for kid in $Kids.get_children():
 		if _bodies.find(kid) == -1:
