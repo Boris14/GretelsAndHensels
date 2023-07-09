@@ -115,5 +115,11 @@ func _physics_process(delta):
 		position = carry_node.global_position + Vector2(0, 50)
 		return
 		
+	$Body/vfx_popsicle_1.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.POPSICLE
+	$Body/vfx_popsicle_2.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.POPSICLE
+	$Body/vfx_chocolate_1.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.CHOCOLATE
+	$Body/vfx_chocolate_2.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.CHOCOLATE
+	$Body/vfx_waffle_1.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.WAFFLE
+	$Body/vfx_waffle_2.emitting = state == KID_STATE.EATING && food_preference == Globals.FOOD_TYPE.WAFFLE
 	get_sweet_for_eating( walk_towards_sweet, eat_sweet(delta), walk_towards_house)
 	$Body.set_scale(Vector2(-sign(velocity.x),1))

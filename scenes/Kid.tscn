@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://vybunamo3v0l"]
+[gd_scene load_steps=30 format=3 uid="uid://vybunamo3v0l"]
 
 [ext_resource type="Script" path="res://scripts/Kid.gd" id="1_w4tw2"]
 [ext_resource type="Texture2D" uid="uid://c167nv8iecbtc" path="res://images/kid/girl/head.png" id="2_2agc7"]
@@ -10,7 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://ddqhnsjy7lgro" path="res://images/kid/girl/r_arm.png" id="8_65d7r"]
 [ext_resource type="Texture2D" uid="uid://buueahe0u13nf" path="res://images/kid/girl/body.png" id="9_q0tc0"]
 [ext_resource type="Texture2D" uid="uid://bd8kbur6gfsrm" path="res://images/kid/girl/l_arm.png" id="10_s8a8d"]
+[ext_resource type="Texture2D" uid="uid://c5x1j1y3s56dv" path="res://images/vfx/p_candy.png" id="11_ff47b"]
 [ext_resource type="AudioStream" uid="uid://8lyciubothia" path="res://sounds/bite.wav" id="11_lowso"]
+[ext_resource type="Texture2D" uid="uid://c031gbj1k3rxs" path="res://images/vfx/p_candy_2.png" id="12_6w7nt"]
+[ext_resource type="Texture2D" uid="uid://b6v4pig85blk1" path="res://images/vfx/p_choco.png" id="13_jvgw6"]
+[ext_resource type="Texture2D" uid="uid://drhxay07k484q" path="res://images/vfx/p_waffle_1.png" id="14_0yipb"]
+[ext_resource type="Texture2D" uid="uid://jc7e2l5xet52" path="res://images/vfx/p_waffle_2.png" id="15_lbjq7"]
 
 [sub_resource type="Animation" id="Animation_jaras"]
 resource_name = "eat_house"
@@ -594,6 +599,10 @@ _data = {
 "idle": SubResource("Animation_hxaw2"),
 "walk": SubResource("Animation_5x0va")
 }
+
+[sub_resource type="Curve" id="Curve_kndvi"]
+_data = [Vector2(0, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.322684, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.127273), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7epmk"]
 radius = 65.0308
@@ -1676,6 +1685,102 @@ texture = ExtResource("10_s8a8d")
 libraries = {
 "": SubResource("AnimationLibrary_6g77q")
 }
+
+[node name="vfx_popsicle_1" type="CPUParticles2D" parent="Body"]
+position = Vector2(-23, -25)
+emitting = false
+amount = 5
+texture = ExtResource("11_ff47b")
+direction = Vector2(0, -1)
+spread = 26.75
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
+
+[node name="vfx_popsicle_2" type="CPUParticles2D" parent="Body"]
+position = Vector2(-21, -26)
+emitting = false
+amount = 5
+texture = ExtResource("12_6w7nt")
+direction = Vector2(0, -1)
+spread = 29.18
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
+
+[node name="vfx_chocolate_1" type="CPUParticles2D" parent="Body"]
+position = Vector2(-21, -26)
+emitting = false
+amount = 5
+texture = ExtResource("13_jvgw6")
+direction = Vector2(0, -1)
+spread = 29.18
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
+
+[node name="vfx_chocolate_2" type="CPUParticles2D" parent="Body"]
+position = Vector2(-21, -26)
+emitting = false
+amount = 5
+texture = ExtResource("13_jvgw6")
+direction = Vector2(0, -1)
+spread = 29.18
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
+
+[node name="vfx_waffle_1" type="CPUParticles2D" parent="Body"]
+position = Vector2(-21, -26)
+emitting = false
+amount = 5
+texture = ExtResource("14_0yipb")
+direction = Vector2(0, -1)
+spread = 29.18
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
+
+[node name="vfx_waffle_2" type="CPUParticles2D" parent="Body"]
+position = Vector2(-21, -26)
+emitting = false
+amount = 5
+texture = ExtResource("15_lbjq7")
+direction = Vector2(0, -1)
+spread = 29.18
+initial_velocity_min = 297.29
+initial_velocity_max = 358.1
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_max = 40.0
+scale_amount_min = 0.01
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_kndvi")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
