@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd3h11dlvlsog"]
+[gd_scene load_steps=15 format=3 uid="uid://dd3h11dlvlsog"]
 
 [ext_resource type="Script" path="res://scripts/BabaYaga.gd" id="1_b18iy"]
 [ext_resource type="Texture2D" uid="uid://buw00501uk4ul" path="res://images/baba/r_arm.png" id="2_0i0y3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://coskjkqf30wbo" path="res://images/baba/eyes.png" id="5_2pv2w"]
 [ext_resource type="Texture2D" uid="uid://hpctdneok8yh" path="res://images/baba/l_arm.png" id="5_o4d3f"]
 [ext_resource type="Texture2D" uid="uid://bkmdqmckf4s5l" path="res://images/baba/irises.png" id="6_sg3tv"]
+[ext_resource type="AudioStream" uid="uid://bmjix2vjwx67h" path="res://sounds/grab_kid.wav" id="8_0w0ox"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iylg5"]
 radius = 58.3095
@@ -842,3 +843,6 @@ speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_qu6ld")
 }
+
+[node name="sfx_grab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0w0ox")

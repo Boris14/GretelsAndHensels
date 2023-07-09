@@ -46,6 +46,7 @@ func _ready():
 func _escape_timer_handle():
 	if carry_node:
 		escaped.emit()
+		$sfx_bite.play()
 	escape_timer.stop()
 
 func try_to_escape(_witch_strength):

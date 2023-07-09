@@ -30,6 +30,7 @@ func grab_kid(kid):
 	kid.grab($Body/Scale/Root/LArm, strength)
 	kid.connect("escaped", _on_kid_escaped)
 	_carrying_kid = kid
+	$sfx_grab.play()
 	_block_grab()
 
 func drop_kid():

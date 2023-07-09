@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vybunamo3v0l"]
+[gd_scene load_steps=24 format=3 uid="uid://vybunamo3v0l"]
 
 [ext_resource type="Script" path="res://scripts/Kid.gd" id="1_w4tw2"]
 [ext_resource type="Texture2D" uid="uid://c167nv8iecbtc" path="res://images/kid/girl/head.png" id="2_2agc7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddqhnsjy7lgro" path="res://images/kid/girl/r_arm.png" id="8_65d7r"]
 [ext_resource type="Texture2D" uid="uid://buueahe0u13nf" path="res://images/kid/girl/body.png" id="9_q0tc0"]
 [ext_resource type="Texture2D" uid="uid://bd8kbur6gfsrm" path="res://images/kid/girl/l_arm.png" id="10_s8a8d"]
+[ext_resource type="AudioStream" uid="uid://8lyciubothia" path="res://sounds/bite.wav" id="11_lowso"]
 
 [sub_resource type="Animation" id="Animation_jaras"]
 resource_name = "eat_house"
@@ -1694,3 +1695,7 @@ speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_rety6")
 }
+
+[node name="sfx_bite" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lowso")
+volume_db = -13.117
