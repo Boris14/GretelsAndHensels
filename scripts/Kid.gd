@@ -62,6 +62,7 @@ func grab(carrier, strength):
 	rotate(PI/2)
 	carry_node = carrier
 	state = KID_STATE.CAUGHT
+	$Anim.play("idle")
 	try_to_escape(strength)
 
 func drop():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=9 format=3 uid="uid://b2nwst2j2dh3r"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
 [ext_resource type="PackedScene" uid="uid://vybunamo3v0l" path="res://scenes/Kid.tscn" id="1_uoxyl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://m8lcv02g5cda" path="res://scenes/Sweet.tscn" id="3_a2vq3"]
 [ext_resource type="PackedScene" uid="uid://nnkbl5nl8ffd" path="res://scenes/UI/HUD.tscn" id="5_041a2"]
 [ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="6_ohgr2"]
+[ext_resource type="PackedScene" uid="uid://yhttkxroyceu" path="res://scenes/Pot.tscn" id="8_0q3or"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qqujr")
@@ -18,6 +19,9 @@ texture = ExtResource("2_krsmx")
 [node name="House" parent="." instance=ExtResource("1_uu1e1")]
 position = Vector2(996, 532)
 scale = Vector2(0.727476, 0.727476)
+
+[node name="Pot" parent="." instance=ExtResource("8_0q3or")]
+position = Vector2(1275, 456)
 
 [node name="Kids" type="Node2D" parent="."]
 

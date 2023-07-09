@@ -51,9 +51,6 @@ func _physics_process(delta):
 		$Anim.play("idle")
 		return
 		
-	if _carrying_kid:
-		_carrying_kid.z_index = z_index + 1
-		
 	_speed = normal_speed * (speed_carry_mult if _carrying_kid else 1)
 	_curr_magic = clamp(_curr_magic + magic_regen, 0, _max_magic)
 	
@@ -66,6 +63,9 @@ func _physics_process(delta):
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _can_grab:
 		if _carrying_kid:
+			for body in $PickUpArea.get_overlapping_bodies():
+				if body.is_in_group("pots"):
+					body.start_cooking(_carrying_kid)
 			drop_kid()
 		else:
 			for body in $PickUpArea.get_overlapping_bodies():
