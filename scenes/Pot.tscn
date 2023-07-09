@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://yhttkxroyceu"]
+[gd_scene load_steps=19 format=3 uid="uid://yhttkxroyceu"]
 
 [ext_resource type="Script" path="res://scripts/Pot.gd" id="1_rnq1g"]
 [ext_resource type="Texture2D" uid="uid://c57echnpjsn5c" path="res://images/pot/cauldron_0003_cauldron.png" id="2_is4s6"]
+[ext_resource type="Texture2D" uid="uid://cujyv1wghkdbr" path="res://images/bubble.png" id="3_56o8l"]
 [ext_resource type="Texture2D" uid="uid://b6od1qw6duqry" path="res://images/pot/cauldron_0002_fire.png" id="3_q2syj"]
 [ext_resource type="Texture2D" uid="uid://5y2s2v4i7a7n" path="res://images/pot/cauldron_0001_bubbles.png" id="4_2widj"]
 [ext_resource type="Texture2D" uid="uid://23hcyk8n5sfw" path="res://images/pot/flame1.png" id="4_lfhkj"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://0746c500xxu4" path="res://images/pot/flame3.png" id="6_45ct7"]
 [ext_resource type="AudioStream" uid="uid://djnmil8v3mk5i" path="res://sounds/plop.wav" id="6_i0y8k"]
 [ext_resource type="AudioStream" uid="uid://hat5w7vhcd2d" path="res://sounds/boil.wav" id="7_l3quk"]
+[ext_resource type="AudioStream" uid="uid://b3jfqvn7lrrpe" path="res://sounds/chew_kid.wav" id="12_5npqe"]
+
+[sub_resource type="Curve" id="Curve_rfgum"]
+_data = [Vector2(0, 0.0818181), 0.0, 0.0, 0, 0, Vector2(0.302181, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4uwc7"]
 radius = 111.221
@@ -20,7 +26,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CookSprites/fire3:position")
+tracks/0/path = NodePath("imgs/CookSprites/fire3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CookSprites/fire3:rotation")
+tracks/1/path = NodePath("imgs/CookSprites/fire3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CookSprites/fire3:scale")
+tracks/2/path = NodePath("imgs/CookSprites/fire3:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CookSprites/fire1:position")
+tracks/3/path = NodePath("imgs/CookSprites/fire1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -68,7 +74,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CookSprites/fire1:rotation")
+tracks/4/path = NodePath("imgs/CookSprites/fire1:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -80,7 +86,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CookSprites/fire1:scale")
+tracks/5/path = NodePath("imgs/CookSprites/fire1:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -92,7 +98,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CookSprites/fire2:position")
+tracks/6/path = NodePath("imgs/CookSprites/fire2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -104,7 +110,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CookSprites/fire2:rotation")
+tracks/7/path = NodePath("imgs/CookSprites/fire2:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -116,7 +122,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CookSprites/fire2:scale")
+tracks/8/path = NodePath("imgs/CookSprites/fire2:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -128,7 +134,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CookSprites/SteamSprite:flip_h")
+tracks/9/path = NodePath("imgs/CookSprites/SteamSprite:flip_h")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -140,7 +146,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("CookSprites/BubblesSprite:flip_h")
+tracks/10/path = NodePath("imgs/CookSprites/BubblesSprite:flip_h")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -155,7 +161,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CookSprites/fire3:position")
+tracks/0/path = NodePath("imgs/CookSprites/fire3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -167,7 +173,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CookSprites/fire3:rotation")
+tracks/1/path = NodePath("imgs/CookSprites/fire3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -179,7 +185,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CookSprites/fire3:scale")
+tracks/2/path = NodePath("imgs/CookSprites/fire3:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -191,7 +197,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CookSprites/fire1:position")
+tracks/3/path = NodePath("imgs/CookSprites/fire1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -203,7 +209,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CookSprites/fire1:rotation")
+tracks/4/path = NodePath("imgs/CookSprites/fire1:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -215,7 +221,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CookSprites/fire1:scale")
+tracks/5/path = NodePath("imgs/CookSprites/fire1:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -227,7 +233,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CookSprites/fire2:position")
+tracks/6/path = NodePath("imgs/CookSprites/fire2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -239,7 +245,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CookSprites/fire2:rotation")
+tracks/7/path = NodePath("imgs/CookSprites/fire2:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -251,7 +257,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CookSprites/fire2:scale")
+tracks/8/path = NodePath("imgs/CookSprites/fire2:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -263,7 +269,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CookSprites/SteamSprite:flip_h")
+tracks/9/path = NodePath("imgs/CookSprites/SteamSprite:flip_h")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -275,7 +281,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("CookSprites/BubblesSprite:flip_h")
+tracks/10/path = NodePath("imgs/CookSprites/BubblesSprite:flip_h")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -284,11 +290,41 @@ tracks/10/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xf7bw"]
+resource_name = "bounce"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("./imgs:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.8, 0.8)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aghjd"]
 _data = {
 "RESET": SubResource("Animation_ps13h"),
-"boil": SubResource("Animation_gok8a")
+"boil": SubResource("Animation_gok8a"),
+"bounce": SubResource("Animation_xf7bw")
 }
 
 [node name="Pot" type="Area2D"]
@@ -296,46 +332,70 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rnq1g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_4uwc7")
+[node name="imgs" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
-[node name="PotSprite" type="Sprite2D" parent="."]
+[node name="PotSprite" type="Sprite2D" parent="imgs"]
 position = Vector2(0, -30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_is4s6")
 
-[node name="CookSprites" type="Node2D" parent="."]
+[node name="CookSprites" type="Node2D" parent="imgs"]
 
-[node name="wood" type="Sprite2D" parent="CookSprites"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="imgs/CookSprites"]
+position = Vector2(2.04082, -130.612)
+scale = Vector2(1, 1)
+texture = ExtResource("3_56o8l")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 71.43
+initial_velocity_max = 77.38
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+radial_accel_min = 2.38
+radial_accel_max = 58.33
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.01
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_rfgum")
+
+[node name="wood" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(-25, 80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_q2syj")
 
-[node name="fire1" type="Sprite2D" parent="CookSprites"]
+[node name="fire1" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(-25, 80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_lfhkj")
 
-[node name="fire2" type="Sprite2D" parent="CookSprites"]
+[node name="fire2" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(-25, 80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_63qrw")
 
-[node name="fire3" type="Sprite2D" parent="CookSprites"]
+[node name="fire3" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(-25, 80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_45ct7")
 offset = Vector2(-95.8916, 0.569565)
 
-[node name="BubblesSprite" type="Sprite2D" parent="CookSprites"]
+[node name="BubblesSprite" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(0, -120)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_2widj")
 
-[node name="SteamSprite" type="Sprite2D" parent="CookSprites"]
+[node name="SteamSprite" type="Sprite2D" parent="imgs/CookSprites"]
 position = Vector2(0, -200)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_hsnqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4uwc7")
 
 [node name="sfx_plop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i0y8k")
@@ -348,4 +408,5 @@ libraries = {
 "": SubResource("AnimationLibrary_aghjd")
 }
 
-[connection signal="finished" from="sfx_plop" to="sfx_boil" method="play"]
+[node name="sfx_chew_kid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_5npqe")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=12 format=3 uid="uid://b2nwst2j2dh3r"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bcfbrs2fmsrj5" path="res://scenes/Kids.tscn" id="5_gpvmb"]
 [ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="6_ohgr2"]
 [ext_resource type="PackedScene" uid="uid://yhttkxroyceu" path="res://scenes/Pot.tscn" id="8_0q3or"]
+[ext_resource type="Texture2D" uid="uid://xh6j4xo8wmwg" path="res://images/branch1.png" id="9_163kd"]
+[ext_resource type="Script" path="res://scripts/Branch1.gd" id="10_08pn8"]
+[ext_resource type="Texture2D" uid="uid://dtje28vyt4ol1" path="res://images/branch2.png" id="11_7bjse"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qqujr")
@@ -20,10 +23,6 @@ texture = ExtResource("2_krsmx")
 z_index = 0
 position = Vector2(996, 532)
 scale = Vector2(0.727476, 0.727476)
-
-[node name="Pot" parent="." instance=ExtResource("8_0q3or")]
-position = Vector2(1250, 541)
-scale = Vector2(0.7, 0.7)
 
 [node name="Kids" parent="." instance=ExtResource("5_gpvmb")]
 
@@ -43,3 +42,67 @@ sweet_type = 0
 [node name="HUD" parent="." instance=ExtResource("5_041a2")]
 
 [node name="BabaYaga" parent="." instance=ExtResource("6_ohgr2")]
+position = Vector2(969, 657)
+
+[node name="Pot" parent="." instance=ExtResource("8_0q3or")]
+z_index = 2
+position = Vector2(1342, 536)
+
+[node name="Branches" type="Node2D" parent="."]
+
+[node name="Branch1" type="Sprite2D" parent="Branches"]
+position = Vector2(-35, 11)
+rotation = 2.15645
+scale = Vector2(0.655647, 0.655647)
+texture = ExtResource("9_163kd")
+offset = Vector2(47.9566, -243.509)
+script = ExtResource("10_08pn8")
+
+[node name="Branch2" type="Sprite2D" parent="Branches"]
+position = Vector2(60.814, -15.5233)
+rotation = 2.36992
+scale = Vector2(0.46159, 0.46159)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+
+[node name="Branch8" type="Sprite2D" parent="Branches"]
+position = Vector2(-73, 59)
+rotation = 2.35812
+scale = Vector2(0.46159, 0.46159)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+
+[node name="Branch3" type="Sprite2D" parent="Branches"]
+position = Vector2(-100.014, 1124.5)
+rotation = 0.92032
+scale = Vector2(0.655647, 0.655647)
+texture = ExtResource("9_163kd")
+offset = Vector2(47.9566, -243.509)
+
+[node name="Branch4" type="Sprite2D" parent="Branches"]
+position = Vector2(33.4702, 1060.43)
+rotation = 1.1338
+scale = Vector2(0.46159, 0.46159)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+
+[node name="Branch5" type="Sprite2D" parent="Branches"]
+position = Vector2(1898.08, -26.5424)
+rotation = -2.18007
+scale = Vector2(0.655647, 0.655647)
+texture = ExtResource("9_163kd")
+offset = Vector2(47.9566, -243.509)
+
+[node name="Branch6" type="Sprite2D" parent="Branches"]
+position = Vector2(1989, -19.0001)
+rotation = -1.9666
+scale = Vector2(0.46159, 0.46159)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)
+
+[node name="Branch7" type="Sprite2D" parent="Branches"]
+position = Vector2(2013, 76)
+rotation = -1.81786
+scale = Vector2(0.46159, 0.46159)
+texture = ExtResource("11_7bjse")
+offset = Vector2(-80.751, -228.252)

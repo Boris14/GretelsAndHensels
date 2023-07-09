@@ -8,7 +8,7 @@ script = ExtResource("1_j31o0")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="Node2D"]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Node2D/Timer" to="." method="_on_timer_timeout"]
