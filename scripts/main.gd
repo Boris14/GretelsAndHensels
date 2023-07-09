@@ -41,7 +41,7 @@ func _sort_bodies_by_y_pos():
 func _ready():
 	get_tree().paused = true
 	$Pot.connect("kid_eaten", baba_yaga._on_kid_eaten)
-	
+	baba_yaga.connect("ability_pressed", hud._on_player_ability_pressed)
 	_bodies.append($House)
 	_bodies.append($BabaYaga)
 	_bodies.append($Pot)

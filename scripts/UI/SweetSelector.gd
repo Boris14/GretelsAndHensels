@@ -8,10 +8,6 @@ var _selected_food = null
 func _ready():
 	pass # Replace with function body.
 
-func spawn_sweeet(sweet_type):
-	if sweet_type == null:
-		return
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,7 +29,5 @@ func _process(delta):
 		_selected_food = null
 		
 	if Input.is_action_just_released("mouse_right"):
-		print(_selected_food)
-		spawn_sweeet(_selected_food)
 		button_released.emit(_selected_food, $Center.get_global_position())
 		queue_free()

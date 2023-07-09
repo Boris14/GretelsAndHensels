@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dd15lx6e1lxjk" path="res://images/IMG_4400.png" id="2_6yr03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc2ik"]
-size = Vector2(367, 170)
+size = Vector2(367, 388)
 
 [node name="House" type="StaticBody2D"]
 z_index = -1
@@ -22,5 +22,5 @@ position = Vector2(32, -184)
 texture = ExtResource("2_6yr03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-38.5, -100)
+position = Vector2(-38.5, -209)
 shape = SubResource("RectangleShape2D_sc2ik")
