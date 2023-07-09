@@ -40,7 +40,7 @@ func _sort_bodies_by_y_pos():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Pot.connect("kid_eaten", baba_yaga._on_kid_eaten)
-	
+	baba_yaga.connect("ability_pressed", hud._on_player_ability_pressed)
 	_bodies.append($House)
 	_bodies.append($BabaYaga)
 	_bodies.append($Pot)

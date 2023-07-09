@@ -19,9 +19,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and not sweet_selector:
-		sweet_selector = sweet_selector_scene.instantiate() as SweetSelector
-		sweet_selector.position = get_local_mouse_position()
-		sweet_selector.position = sweet_selector.position - sweet_selector.size / 2
-		sweet_selector.connect("button_released", baba_yaga._on_sweet_selector_button_released)
-		add_child(sweet_selector)
+	pass
+		
+func _on_player_ability_pressed():
+	if sweet_selector:
+		return
+	sweet_selector = sweet_selector_scene.instantiate() as SweetSelector
+	sweet_selector.position = get_local_mouse_position()
+	sweet_selector.position = sweet_selector.position - sweet_selector.size / 2
+	sweet_selector.connect("button_released", baba_yaga._on_sweet_selector_button_released)
+	sweet_selector.connect("button_released", _on_sweet_selector_button_released)
+	add_child(sweet_selector)
+	
+func _on_sweet_selector_button_released(selected_food, pos):
+	sweet_selector = null

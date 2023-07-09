@@ -17,6 +17,7 @@ var _is_eaten = false
 func _eating_timer_handle():
 	_is_eaten = false
 	flicker_timer.stop()
+	$Image.modulate = MODULATE_COLOR
 
 func eat(eat_speed):
 	_is_eaten = true

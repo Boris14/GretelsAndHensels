@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal ability_pressed(can_activate)
+signal ability_pressed
 signal magic_changed(new_magic, max_magic)
 
 const REACH_DIST = 8.0
@@ -105,8 +105,8 @@ func _physics_process(delta):
 					if body.is_in_group("kids"):
 						grab_kid(body)
 						break
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		ability_pressed.emit(_curr_magic >= _max_magic)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and _curr_magic > ability_magic:
+		ability_pressed.emit()
 
 	$Anim.play("walk" if velocity.length() > REACH_DIST else "idle")	
 	$Body.set_scale(Vector2(-1 if velocity.x > 0 else 1, 1))
