@@ -8,7 +8,7 @@ var sex = Globals.SEX.BOY
 @export var food_preference = Globals.FOOD_TYPE.CHOCOLATE
 
 @export var speed = 10
-@export var eat_speed = 10
+@export var eat_speed = 7.5
 
 enum KID_STATE {RUNNING, EATING, CAUGHT, COOKING}
 @export var state = KID_STATE.RUNNING

@@ -16,13 +16,13 @@ var _changing_day = false
 
 @onready var hud = $HUD as HUD
 @onready var baba_yaga = $BabaYaga as BabaYaga
-#@onready var sweet_selector = $HUD/Sweet as SweetSelector
 
 var _is_day = true
 var _days_count = 0
 
 func change_brightness(_modulate):
 	$Grass.modulate = _modulate
+	$House/HouseShadew.modulate = _modulate
 
 func _sort_bodies_by_y_pos():
 	for _body in _bodies:
@@ -94,7 +94,7 @@ func _process(delta):
 
 
 func _on_book_book_closed():
+	$sfx_music.play()
 	get_tree().paused= false
-	pass # Replace with function body.
 
 

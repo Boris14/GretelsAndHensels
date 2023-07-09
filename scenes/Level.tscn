@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=19 format=3 uid="uid://b2nwst2j2dh3r"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sa5snhee72w" path="res://images/book/back cover.png" id="11_dosny"]
 [ext_resource type="AudioStream" uid="uid://b15ydgcl6jkeb" path="res://sounds/videoplayback.wav" id="12_ncohs"]
 [ext_resource type="AudioStream" uid="uid://df7sujlx7464e" path="res://sounds/videoplayback1.wav" id="13_8rhyt"]
+[ext_resource type="AudioStream" uid="uid://bikdhijnhrkx0" path="res://sounds/2015-09-13_-_Land_of_Fantasy_-_David_Fesliyan.mp3" id="14_87iu4"]
 
 [sub_resource type="Animation" id="Animation_p5igl"]
 length = 0.001
@@ -173,7 +174,7 @@ texture = ExtResource("2_krsmx")
 
 [node name="House" parent="." instance=ExtResource("1_uu1e1")]
 z_index = 0
-position = Vector2(996, 532)
+position = Vector2(996, 450)
 scale = Vector2(0.727476, 0.727476)
 
 [node name="Kids" parent="." instance=ExtResource("5_gpvmb")]
@@ -331,6 +332,10 @@ stream = ExtResource("12_ncohs")
 
 [node name="sfx_day" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_8rhyt")
+
+[node name="sfx_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_87iu4")
+volume_db = -2.0
 
 [connection signal="button_down" from="End/Button" to="End/Button" method="_on_button_down"]
 [connection signal="pressed" from="End/Button" to="End/Button" method="_on_pressed"]

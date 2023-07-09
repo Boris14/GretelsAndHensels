@@ -16,7 +16,7 @@ var strength = 3.0
 @export
 var ability_magic = 99.0
 
-var _speed = normal_speed
+@onready var _speed = normal_speed
 var _max_magic = 100.0
 var _curr_magic = 100.0
 
@@ -63,7 +63,7 @@ func _on_kid_eaten(food_pref):
 	get_node("../").add_child(power_up)
 	match food_pref:
 		Globals.FOOD_TYPE.POPSICLE:
-			_speed += 50
+			_speed += 20
 		Globals.FOOD_TYPE.WAFFLE:
 			strength += 1
 		Globals.FOOD_TYPE.CHOCOLATE:
@@ -87,7 +87,6 @@ func _physics_process(delta):
 		$Anim.play("idle")
 		return
 		
-	_speed = normal_speed
 	_curr_magic = clamp(_curr_magic + magic_regen * delta, 0, _max_magic)
 	magic_changed.emit(_curr_magic, _max_magic)
 

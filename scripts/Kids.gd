@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var max_kids_count = 5
+@export var max_kids_count = 6
 
 var kid_scene = preload("res://scenes/Kid.tscn")
 var timer_speed = 1.0
@@ -22,8 +22,9 @@ func _on_timer_timeout():
 	timer_speed = max(0,timer_speed - 0.001)
 	var kid = kid_scene.instantiate()
 	# kid position should be a vector starting from the center of the screen 1920x1080 in a random direction, with a random length that is at least 1000 and at most 1920
-	var kid_pos = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized()
-	while kid_pos.x == 0 or kid_pos.y == 0:
-		kid_pos = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized()
-	kid.position = kid_pos * randf_range(1000,1920)
+	var center = Vector2(1920/2, 1080/2)
+	var dir= Vector2(randf_range(-1,1), randf_range(0.1,1)).normalized()
+	var kid_position = center + dir * randf_range(1000,2000)
+	kid.position = kid_position
+
 	add_child(kid)

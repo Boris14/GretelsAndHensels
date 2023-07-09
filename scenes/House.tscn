@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://4q1pqxdvwcte"]
+[gd_scene load_steps=6 format=3 uid="uid://4q1pqxdvwcte"]
 
 [ext_resource type="Script" path="res://scripts/House.gd" id="1_38vin"]
 [ext_resource type="Texture2D" uid="uid://df2go20htpe75" path="res://images/house_shadew.png" id="2_0krd0"]
 [ext_resource type="Texture2D" uid="uid://dd15lx6e1lxjk" path="res://images/IMG_4400.png" id="2_6yr03"]
+[ext_resource type="AudioStream" uid="uid://7gk8f02ehs7" path="res://sounds/jingles_SAX01.ogg" id="4_037e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc2ik"]
 size = Vector2(367, 170)
@@ -25,3 +26,7 @@ texture = ExtResource("2_6yr03")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-38.5, -100)
 shape = SubResource("RectangleShape2D_sc2ik")
+
+[node name="sfx_lose" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_037e7")

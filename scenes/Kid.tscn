@@ -1815,11 +1815,11 @@ volume_db = -13.117
 
 [node name="sfx_chew" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_8vx7c")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="sfx_speak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_3s2aw")
-volume_db = -17.045
+volume_db = -10.0
 
 [node name="speak_timer" type="Timer" parent="."]
 autostart = true

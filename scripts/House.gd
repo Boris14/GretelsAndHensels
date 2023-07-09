@@ -22,8 +22,8 @@ func eat(eat_speed):
 		health_changed.emit(_curr_health, max_health)
 		if _curr_health <= 0:
 			get_node("../End/AnimationPlayer").play("appear")
+			$sfx_lose.play()
 			get_tree().paused = true
-			pass # lose the game
 	eating_timer.start()
 
 # Called when the node enters the scene tree for the first time.
