@@ -19,9 +19,4 @@ func _on_timer_timeout():
 	var kid = kid_scene.instantiate()
 	# kid position should be a vector starting from the center of the screen 1920x1080 in a random direction, with a random length that is at least 1000 and at most 1920
 	kid.position = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized() * randf_range(1000,1920)
-
-
 	add_child(kid)
-
-
-	pass # Replace with function body.
