@@ -1,5 +1,7 @@
 extends Node2D
 
+signal day_passed(days_count)
+
 const HUD = preload("res://scripts/UI/HUD.gd")
 const SweetSelector = preload("res://scripts/UI/SweetSelector.gd")
 const BabaYaga = preload("res://scripts/BabaYaga.gd")
@@ -17,6 +19,7 @@ var _changing_day = false
 #@onready var sweet_selector = $HUD/Sweet as SweetSelector
 
 var _is_day = true
+var _days_count = 0
 
 func _sort_bodies_by_y_pos():
 	for _body in _bodies:
@@ -49,6 +52,9 @@ func change_day():
 	await get_tree().create_timer(day_duration).timeout
 	_changing_day = false
 	_is_day = not _is_day
+	if not _is_day:
+		_days_count += 1
+		day_passed.emit(_days_count)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -62,6 +68,9 @@ func _process(delta):
 	for kid in $Kids.get_children():
 		if _bodies.find(kid) == -1:
 			_bodies.append(kid)
+	for sweet in $Sweets.get_children():
+		if _bodies.find(sweet) == -1:
+			_bodies.append(sweet)
 	_sort_bodies_by_y_pos()
 	
 	if Input.is_action_just_pressed("ui_cancel"):

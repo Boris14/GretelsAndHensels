@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://nnkbl5nl8ffd"]
+[gd_scene load_steps=3 format=3 uid="uid://nnkbl5nl8ffd"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_begx3"]
+[ext_resource type="PackedScene" uid="uid://bi02mlsnr6fym" path="res://scenes/UI/Healthbar.tscn" id="2_bhbfu"]
 
 [node name="HUD" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_begx3")
+
+[node name="Healthbar" parent="." instance=ExtResource("2_bhbfu")]
+layout_mode = 1

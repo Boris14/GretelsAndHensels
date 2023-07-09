@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://m8lcv02g5cda"]
+[gd_scene load_steps=11 format=3 uid="uid://m8lcv02g5cda"]
 
 [ext_resource type="Script" path="res://scripts/Sweet.gd" id="1_se1bc"]
 [ext_resource type="Texture2D" uid="uid://bqbevg53atgch" path="res://images/food/chocolate.png" id="2_hngkp"]
+[ext_resource type="Texture2D" uid="uid://6pshpvxu7tl3" path="res://images/food/IMG_4413.png" id="2_rfbkq"]
+[ext_resource type="Texture2D" uid="uid://kaxa1723e2wi" path="res://images/food/IMG_4415.png" id="3_id8aj"]
+[ext_resource type="Texture2D" uid="uid://4fhp4ewxmlse" path="res://images/food/IMG_4414.png" id="4_as55j"]
 
 [sub_resource type="Animation" id="Animation_ib0eq"]
 length = 0.001
@@ -199,6 +202,9 @@ _data = {
 
 [node name="Sweet" type="Node2D"]
 script = ExtResource("1_se1bc")
+chocolate_texture = ExtResource("2_rfbkq")
+popsicle_texture = ExtResource("3_id8aj")
+waffle_texture = ExtResource("4_as55j")
 
 [node name="Image" type="Node2D" parent="."]
 

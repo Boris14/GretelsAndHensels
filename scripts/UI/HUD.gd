@@ -6,14 +6,14 @@ const BabaYaga = preload("res://scripts/BabaYaga.gd")
 @onready var sweet_selector_scene = preload("res://scenes/UI/SweetSelector.tscn")
 @onready var healthbar_scene = preload("res://scenes/UI/Healthbar.tscn")
 @onready var baba_yaga = get_node("../BabaYaga") as BabaYaga
+@onready var _healthbar = get_node("Healthbar")
 
 var sweet_selector = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var _house = get_node("../House")
-	var _healthbar = healthbar_scene.instantiate()
-	add_child(_healthbar)
+	get_node("../../Level").connect("day_passed", _healthbar._on_day_passed)
 	_house.connect("health_changed", _healthbar._on_house_health_changed)
 	baba_yaga.connect("magic_changed", _healthbar._on_magic_changed)
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2nwst2j2dh3r"]
+[gd_scene load_steps=11 format=3 uid="uid://b2nwst2j2dh3r"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qqujr"]
 [ext_resource type="PackedScene" uid="uid://4q1pqxdvwcte" path="res://scenes/House.tscn" id="1_uu1e1"]
 [ext_resource type="Texture2D" uid="uid://dn7axhbbn6b1h" path="res://images/grass.png" id="2_krsmx"]
-[ext_resource type="PackedScene" uid="uid://m8lcv02g5cda" path="res://scenes/Sweet.tscn" id="3_a2vq3"]
 [ext_resource type="PackedScene" uid="uid://nnkbl5nl8ffd" path="res://scenes/UI/HUD.tscn" id="5_041a2"]
 [ext_resource type="PackedScene" uid="uid://bcfbrs2fmsrj5" path="res://scenes/Kids.tscn" id="5_gpvmb"]
 [ext_resource type="PackedScene" uid="uid://dd3h11dlvlsog" path="res://scenes/BabaYaga.tscn" id="6_ohgr2"]
@@ -27,17 +26,6 @@ scale = Vector2(0.727476, 0.727476)
 [node name="Kids" parent="." instance=ExtResource("5_gpvmb")]
 
 [node name="Sweets" type="Node2D" parent="."]
-
-[node name="Sweet" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(1373, 192)
-
-[node name="Sweet2" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(1546, 381)
-sweet_type = 1
-
-[node name="Sweet3" parent="Sweets" instance=ExtResource("3_a2vq3")]
-position = Vector2(561, 592)
-sweet_type = 0
 
 [node name="HUD" parent="." instance=ExtResource("5_041a2")]
 
