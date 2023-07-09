@@ -8,8 +8,9 @@ const NIGHT_COLOR = Color8(12, 19, 67)
 
 var _bodies = []
 var _curr_lighting = 1.0
+var _changing_day = false
 
-@export var day_duration = 8.0
+@export var day_duration = 4.0
 
 @onready var hud = $HUD as HUD
 @onready var baba_yaga = $BabaYaga as BabaYaga
@@ -38,23 +39,27 @@ func _ready():
 	_bodies.append($House)
 	_bodies.append($BabaYaga)
 	_bodies.append($Pot)
-	for kid in $Kids.get_children():
-		_bodies.append(kid)
 	randomize()
-	pass # Replace with function body.
+	change_day()
 
+func change_day():
+	_changing_day = true
+	await get_tree().create_timer(day_duration).timeout
+	_changing_day = false
+	_is_day = not _is_day
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var _step = delta * (-0.05 if _is_day else 0.05)
-	_curr_lighting += _step
-	if _is_day and _curr_lighting <= 0.4:
-		_is_day = false
-	elif not _is_day and _curr_lighting >= 1:
-		_is_day = true
-	print(_curr_lighting)
+	if not _changing_day:
+		var _step = delta * (-0.1 if _is_day else 0.1)
+		_curr_lighting += _step
+		if (_is_day and _curr_lighting <= 0.5) or (not _is_day and _curr_lighting >= 1):
+			change_day()
 	modulate = NIGHT_COLOR.lightened(_curr_lighting)
 	
+	for kid in $Kids.get_children():
+		if _bodies.find(kid) == -1:
+			_bodies.append(kid)
 	_sort_bodies_by_y_pos()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
