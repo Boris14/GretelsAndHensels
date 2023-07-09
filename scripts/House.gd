@@ -21,6 +21,8 @@ func eat(eat_speed):
 		_curr_health -= eat_speed
 		health_changed.emit(_curr_health, max_health)
 		if _curr_health <= 0:
+			get_node("../End/AnimationPlayer").play("appear")
+			get_tree().paused = true
 			pass # lose the game
 	eating_timer.start()
 

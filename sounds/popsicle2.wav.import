@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cerhlksc4ce1t"
-path="res://.godot/imported/posicle2.wav-dd66e88a505c1ab81f39fd1eda87cb24.sample"
+path="res://.godot/imported/popsicle2.wav-5fbaa377b1e460a3fc23b36c30f9abc0.sample"
 
 [deps]
 
-source_file="res://sounds/posicle2.wav"
-dest_files=["res://.godot/imported/posicle2.wav-dd66e88a505c1ab81f39fd1eda87cb24.sample"]
+source_file="res://sounds/popsicle2.wav"
+dest_files=["res://.godot/imported/popsicle2.wav-5fbaa377b1e460a3fc23b36c30f9abc0.sample"]
 
 [params]
 

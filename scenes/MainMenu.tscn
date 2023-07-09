@@ -281,6 +281,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.596078), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cjdwh"]
 resource_name = "turn_cover"
@@ -634,7 +648,7 @@ position = Vector2(960, 540)
 texture = ExtResource("1_u40n5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0.596078)
+modulate = Color(1, 1, 1, 0)
 offset_right = 2053.0
 offset_bottom = 1180.0
 color = Color(0, 0, 0, 1)

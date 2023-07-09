@@ -10,6 +10,9 @@
 [node name="MainMenu" parent="." instance=ExtResource("2_lmowy")]
 z_index = 74
 
+[node name="ColorRect" parent="MainMenu" index="1"]
+modulate = Color(1, 1, 1, 0.596078)
+
 [connection signal="book_closed" from="MainMenu/Book" to="Level" method="_on_book_book_closed"]
 
 [editable path="MainMenu"]
