@@ -1,9 +1,11 @@
 extends Control
 
 const SweetSelector = preload("res://scripts/UI/SweetSelector.gd")
+const BabaYaga = preload("res://scripts/BabaYaga.gd")
 
 @onready var sweet_selector_scene = preload("res://scenes/UI/SweetSelector.tscn")
 @onready var healthbar_scene = preload("res://scenes/UI/Healthbar.tscn")
+@onready var baba_yaga = get_node("../BabaYaga") as BabaYaga
 
 var sweet_selector = null
 
@@ -13,6 +15,7 @@ func _ready():
 	var _healthbar = healthbar_scene.instantiate()
 	add_child(_healthbar)
 	_house.connect("health_changed", _healthbar._on_house_health_changed)
+	baba_yaga.connect("magic_changed", _healthbar._on_magic_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,4 +23,5 @@ func _process(delta):
 		sweet_selector = sweet_selector_scene.instantiate() as SweetSelector
 		sweet_selector.position = get_local_mouse_position()
 		sweet_selector.position = sweet_selector.position - sweet_selector.size / 2
+		sweet_selector.connect("button_released", baba_yaga._on_sweet_selector_button_released)
 		add_child(sweet_selector)
